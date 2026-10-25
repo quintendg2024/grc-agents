@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Fictional sample data. Simplified ACORD-style submission for a portfolio project. -->
+<ACORD>
+  <InsuranceSvcRq>
+    <RqUID>SUB-1002</RqUID>
+    <CommlPropertyPolicyQuoteInqRq>
+      <InsuredOrPrincipal>
+        <GeneralPartyInfo>
+          <NameInfo><CommlName><CommercialName>North Star Logistics LLC</CommercialName></CommlName></NameInfo>
+        </GeneralPartyInfo>
+      </InsuredOrPrincipal>
+      <CommlPolicy>
+        <EffectiveDt>2026-11-15</EffectiveDt>
+        <ExpirationDt>2027-11-15</ExpirationDt>
+      </CommlPolicy>
+      <Location id="L1">
+        <Addr><Addr1>2200 Industrial Blvd</Addr1><City>Minneapolis</City><StateProvCd>MN</StateProvCd><PostalCode>55413</PostalCode></Addr>
+        <SubLocation id="L1B1"><SubLocationDesc>Office building</SubLocationDesc></SubLocation>
+        <SubLocation id="L1B2"><SubLocationDesc>Warehouse</SubLocationDesc></SubLocation>
+      </Location>
+      <CommlPropertyLineBusiness>
+        <PropertyInfo>
+          <CommlPropertyInfo LocationRef="L1" SubLocationRef="L1B1">
+            <SubjectInsuranceCd>BLDG</SubjectInsuranceCd>
+            <ConstructionCd>MNC</ConstructionCd>
+          </CommlPropertyInfo>
+          <CommlPropertyInfo LocationRef="L1" SubLocationRef="L1B2">
+            <SubjectInsuranceCd>BLDG</SubjectInsuranceCd>
+            <ConstructionCd>NC</ConstructionCd>
+          </CommlPropertyInfo>
+        </PropertyInfo>
+      </CommlPropertyLineBusiness>
+    </CommlPropertyPolicyQuoteInqRq>
+  </InsuranceSvcRq>
+</ACORD>

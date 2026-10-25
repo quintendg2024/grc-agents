@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Fictional sample data. Simplified ACORD-style submission for a portfolio project. -->
+<ACORD>
+  <InsuranceSvcRq>
+    <RqUID>SUB-1008</RqUID>
+    <CommlPropertyPolicyQuoteInqRq>
+      <InsuredOrPrincipal>
+        <GeneralPartyInfo>
+          <NameInfo><CommlName><CommercialName>Birchwood Family Pharmacy</CommercialName></CommlName></NameInfo>
+        </GeneralPartyInfo>
+      </InsuredOrPrincipal>
+      <CommlPolicy>
+        <EffectiveDt>11/01/2026</EffectiveDt>
+        <ExpirationDt>2027-11-01</ExpirationDt>
+      </CommlPolicy>
+      <Location id="L1">
+        <Addr><Addr1>12 Birch Ln</Addr1><City>Bemidji</City><StateProvCd>MN</StateProvCd><PostalCode>56601</PostalCode></Addr>
+        <SubLocation id="L1B1"><SubLocationDesc>Pharmacy storefront</SubLocationDesc></SubLocation>
+      </Location>
+      <CommlPropertyLineBusiness>
+        <PropertyInfo>
+          <CommlPropertyInfo LocationRef="L1" SubLocationRef="L1B1">
+            <SubjectInsuranceCd>BLDG</SubjectInsuranceCd>
+            <ConstructionCd>MNC</ConstructionCd>
+          </CommlPropertyInfo>
+        </PropertyInfo>
+      </CommlPropertyLineBusiness>
+    </CommlPropertyPolicyQuoteInqRq>
+  </InsuranceSvcRq>
+</ACORD>

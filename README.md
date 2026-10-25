@@ -23,6 +23,8 @@ It produces an auditor-style report: executive summary, findings table with risk
 ```
 .claude/agents/access-reviewer.md   # The agent definition (instructions, tools, output format)
 .claude/agents/policy-mapper.md     # Policy-to-framework gap analysis agent
+.claude/agents/acord-xml-fixer.md   # Rejected ACORD XML triage and repair agent
+acord-xml/                          # Sample submissions, rejection log, and corrected copies
 sample_user_access.csv              # 12 fictional accounts with planted control failures
 sample_infosec_policy.md            # Fictional information security policy (Prairie Mutual Insurance)
 nist_csf_2_categories.md            # NIST CSF 2.0 category checklist used as the reference
@@ -111,6 +113,46 @@ The agent itself flagged that its regulatory-gap severity was inferred from the 
 - Policy text only; it cannot tell whether a control is actually implemented or followed.
 - Ratings on vague wording ("as appropriate", "take appropriate action") are judgment calls, and a different reviewer could draw the Partial/Covered line elsewhere.
 - Applicable regulations (for example state insurance data security laws) are not assessed.
+
+## ACORD XML fixer agent
+
+The `acord-xml-fixer` agent triages rejected ACORD XML insurance submissions. The downstream system rejects files with short, sometimes misleading messages, so the agent looks for the real root cause, writes a corrected copy, and escalates anything that needs a human decision. Unlike the other two agents it can write files (Read, Grep, Glob, Write, Bash), but it only writes corrected copies and never touches the originals.
+
+### What it does
+
+For each rejection in `acord-xml/submission_rejections.csv` it matches the log row to a sample file, diagnoses the cause, and applies a minimal fix to a copy in `acord-xml/fixed/`. Each fixed file is checked to confirm it parses and that every `LocationRef` and `SubLocationRef` matches an existing `id`.
+
+| Status | Meaning |
+|---|---|
+| Fixed | Root cause found and corrected in `acord-xml/fixed/` |
+| Needs human review | The file doesn't contain enough information to fix safely |
+| Clean | No defect found |
+
+### How to run
+
+```
+Use the acord-xml-fixer agent to triage the rejected submissions
+```
+
+### Results
+
+Of 9 sample files, 8 were rejected. The agent fixed 6, escalated 1, and found 1 that was clean but still rejected:
+
+- **Building id defects** (SUB-1002 to 1005): "Building Number is missing" was caused by a missing, empty, or malformed (`"L1 B1"`) `SubLocation` id. 1002, 1003 and 1004 were fixed. SUB-1005 has two unlabeled buildings and no way to tell which is B1 and which is B2, so it was escalated rather than guessed.
+- **Broken location reference** (SUB-1007): `LocationRef="L2"` when only `L1` exists. Changed to `L1`, but an L2 location may have been dropped upstream, so this needs confirmation.
+- **Unescaped `&`** (SUB-1006): "Unable to process submission" was a parse error from `Hansen & Sons Hardware`.
+- **Non-ISO date** (SUB-1008): `11/01/2026` changed to `2026-11-01`.
+- **SUB-1009** was rejected with "Building Number is missing" but the file is valid, so the problem is likely on the downstream side. The same message covered four different causes elsewhere, which is why root-causing matters more than trusting the log.
+
+### Reviewer judgment: what the first run got wrong
+
+- **It skipped the report file.** The agent's instructions require it to write a triage log to `reports/acord-xml-triage.md` and summarize it in the reply. On the first run it only returned the summary, and wrongly said its instructions told it not to create report files. It missed a required step, and the log had to be saved separately.
+- **Its SUB-1008 reasoning was wrong.** The agent said month/day was "the only valid reading since 11 can't be a day". That's incorrect: `11/01/2026` could be January 11 (day/month). The right fix was still `2026-11-01`, but the evidence is the file's own `ExpirationDt` of `2027-11-01`, which makes a one-year term starting November 1. The agent got the right answer for a flawed reason, which is the kind of thing a human reviewer needs to catch.
+
+### Limitations
+
+- Fixes are validated for well-formedness and reference integrity only, not against the full ACORD schema or the downstream system's business rules.
+- Judgment calls such as SUB-1007 are flagged for confirmation but still produce a corrected copy that could be mistaken for a final one.
 
 ## Next
 

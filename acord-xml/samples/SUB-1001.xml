@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Fictional sample data. Simplified ACORD-style submission for a portfolio project. -->
+<ACORD>
+  <InsuranceSvcRq>
+    <RqUID>SUB-1001</RqUID>
+    <CommlPropertyPolicyQuoteInqRq>
+      <InsuredOrPrincipal>
+        <GeneralPartyInfo>
+          <NameInfo><CommlName><CommercialName>Lakeside Dental Group</CommercialName></CommlName></NameInfo>
+        </GeneralPartyInfo>
+      </InsuredOrPrincipal>
+      <CommlPolicy>
+        <EffectiveDt>2026-11-01</EffectiveDt>
+        <ExpirationDt>2027-11-01</ExpirationDt>
+      </CommlPolicy>
+      <Location id="L1">
+        <Addr><Addr1>410 Harbor St</Addr1><City>Duluth</City><StateProvCd>MN</StateProvCd><PostalCode>55802</PostalCode></Addr>
+        <SubLocation id="L1B1"><SubLocationDesc>Main clinic building</SubLocationDesc></SubLocation>
+      </Location>
+      <CommlPropertyLineBusiness>
+        <PropertyInfo>
+          <CommlPropertyInfo LocationRef="L1" SubLocationRef="L1B1">
+            <SubjectInsuranceCd>BLDG</SubjectInsuranceCd>
+            <ConstructionCd>MNC</ConstructionCd>
+          </CommlPropertyInfo>
+        </PropertyInfo>
+      </CommlPropertyLineBusiness>
+    </CommlPropertyPolicyQuoteInqRq>
+  </InsuranceSvcRq>
+</ACORD>

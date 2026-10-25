@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Fictional sample data. Simplified ACORD-style submission for a portfolio project. -->
+<ACORD>
+  <InsuranceSvcRq>
+    <RqUID>SUB-1009</RqUID>
+    <CommlPropertyPolicyQuoteInqRq>
+      <InsuredOrPrincipal>
+        <GeneralPartyInfo>
+          <NameInfo><CommlName><CommercialName>Granite Ridge Fitness</CommercialName></CommlName></NameInfo>
+        </GeneralPartyInfo>
+      </InsuredOrPrincipal>
+      <CommlPolicy>
+        <EffectiveDt>2026-11-05</EffectiveDt>
+        <ExpirationDt>2027-11-05</ExpirationDt>
+      </CommlPolicy>
+      <Location id="L1">
+        <Addr><Addr1>4400 Granite Way</Addr1><City>St. Paul</City><StateProvCd>MN</StateProvCd><PostalCode>55106</PostalCode></Addr>
+        <SubLocation id="L1B1"><SubLocationDesc>Gym facility</SubLocationDesc></SubLocation>
+      </Location>
+      <CommlPropertyLineBusiness>
+        <PropertyInfo>
+          <CommlPropertyInfo LocationRef="L1" SubLocationRef="L1B1">
+            <SubjectInsuranceCd>BLDG</SubjectInsuranceCd>
+            <ConstructionCd>MNC</ConstructionCd>
+          </CommlPropertyInfo>
+        </PropertyInfo>
+      </CommlPropertyLineBusiness>
+    </CommlPropertyPolicyQuoteInqRq>
+  </InsuranceSvcRq>
+</ACORD>

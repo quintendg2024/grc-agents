@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Fictional sample data. Simplified ACORD-style submission for a portfolio project. -->
+<ACORD>
+  <InsuranceSvcRq>
+    <RqUID>SUB-1003</RqUID>
+    <CommlPropertyPolicyQuoteInqRq>
+      <InsuredOrPrincipal>
+        <GeneralPartyInfo>
+          <NameInfo><CommlName><CommercialName>Prairie Bakery Co</CommercialName></CommlName></NameInfo>
+        </GeneralPartyInfo>
+      </InsuredOrPrincipal>
+      <CommlPolicy>
+        <EffectiveDt>2026-12-01</EffectiveDt>
+        <ExpirationDt>2027-12-01</ExpirationDt>
+      </CommlPolicy>
+      <Location id="L1">
+        <Addr><Addr1>88 Main St</Addr1><City>Stillwater</City><StateProvCd>MN</StateProvCd><PostalCode>55082</PostalCode></Addr>
+        <SubLocation id=""><SubLocationDesc>Retail bakery</SubLocationDesc></SubLocation>
+      </Location>
+      <CommlPropertyLineBusiness>
+        <PropertyInfo>
+          <CommlPropertyInfo LocationRef="L1" SubLocationRef="L1B1">
+            <SubjectInsuranceCd>BLDG</SubjectInsuranceCd>
+            <ConstructionCd>F</ConstructionCd>
+          </CommlPropertyInfo>
+        </PropertyInfo>
+      </CommlPropertyLineBusiness>
+    </CommlPropertyPolicyQuoteInqRq>
+  </InsuranceSvcRq>
+</ACORD>

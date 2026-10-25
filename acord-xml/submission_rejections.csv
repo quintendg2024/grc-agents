@@ -1,0 +1,9 @@
+file_name,submission_id,rejected_at,error_message
+SUB-1002.xml,SUB-1002,2026-10-20 09:14,Building Number is missing
+SUB-1003.xml,SUB-1003,2026-10-20 09:15,Building Number is missing
+SUB-1004.xml,SUB-1004,2026-10-20 09:15,Building Number is missing
+SUB-1005.xml,SUB-1005,2026-10-20 09:16,Building Number is missing
+SUB-1006.xml,SUB-1006,2026-10-20 09:18,Unable to process submission
+SUB-1007.xml,SUB-1007,2026-10-20 09:21,Building Number is missing
+SUB-1008.xml,SUB-1008,2026-10-20 09:22,Invalid policy effective date
+SUB-1009.xml,SUB-1009,2026-10-20 09:24,Building Number is missing
