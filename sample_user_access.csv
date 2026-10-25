@@ -1,0 +1,13 @@
+username,full_name,job_title,department,hr_status,account_enabled,last_login,roles
+jsmith,John Smith,Accounts Payable Clerk,Finance,Active,TRUE,2026-10-20,Create Vendor;Approve Payment
+mlee,Maria Lee,Help Desk Technician,IT,Active,TRUE,2026-10-22,Reset Password;Domain Admin
+tbrown,Tom Brown,Underwriter,Underwriting,Terminated,TRUE,2026-06-14,Policy Read;Policy Edit
+akim,Anna Kim,Underwriting Manager,Underwriting,Active,TRUE,2026-10-23,Policy Read;Policy Edit;Policy Approve
+svc_backup,,,IT,,TRUE,2026-10-24,Full Control
+dpatel,Dev Patel,Claims Adjuster,Claims,Active,TRUE,2026-04-02,Claims Read;Claims Edit
+rjones,Rachel Jones,Database Administrator,IT,Active,TRUE,2026-10-21,DBA;Domain Admin
+temp01,,,Finance,,TRUE,2026-03-11,Create Vendor
+kwilson,Kevin Wilson,Marketing Coordinator,Marketing,Active,TRUE,2026-10-18,Marketing Read;DBA
+lgarcia,Luis Garcia,Change Analyst,IT,Active,TRUE,2026-10-19,Submit Change;Approve Change
+bnguyen,Beth Nguyen,HR Generalist,HR,Inactive,TRUE,2026-07-30,HR Read;HR Edit
+cdavis,Chris Davis,Senior Accountant,Finance,Active,FALSE,2026-09-01,Approve Payment
